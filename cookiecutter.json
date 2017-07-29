@@ -1,7 +1,8 @@
 {
     "full_name": "Full Name",
     "email": "name@x.y",
-    "repo_name": "c_stuff",
-    "project_name": "main_program",
-    "project_description": "Boilerplate for C programs with CMake"
+    "project_name": "My New Project",
+    "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '_') }}",
+    "pkg_name": "{{ cookiecutter.project_slug|replace('_', '') }}",
+    "project_short_description": "Boilerplate for C programs with CMake"
 }
