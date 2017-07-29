@@ -27,5 +27,6 @@
 #include <stdio.h>
 
 void print_version (FILE *ostr);
+void print_usage (FILE *ostr);
 
 #endif /* not MYPROG_H_ */
