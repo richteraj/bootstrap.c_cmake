@@ -45,22 +45,6 @@ set (PROJECT_COPY_YEARS "{{ cookiecutter.year }}")
 set (src_DIR ${PROJECT_SOURCE_DIR}/src)
 
 
-# Check DOS/SysV file names
-##
-find_program (doschk_PROG doschk)
-if (doschk_PROG STREQUAL "doschk_PROG-NOTFOUND")
-    message (WARNING "Skipping SysV/DOS file name checks (no doschk program)")
-else ()
-    add_custom_target (check ALL COMMENT "Syntax checks")
-    add_custom_target (
-        sysv_file_names
-        find . -name '[^.]*' -print | ${doschk_PROG}
-        WORKING_DIRECTORY ${src_DIR}
-        COMMENT "Checking file names with doschk")
-    add_dependencies (check sysv_file_names)
-endif ()
-
-
 # Compiler options
 ##
 
