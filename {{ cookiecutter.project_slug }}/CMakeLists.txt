@@ -38,7 +38,7 @@ if (USE_CLANG)
     endif ()
 endif ()
 
-project (myproj VERSION 0.1.0 LANGUAGES C)
+project ({{ cookiecutter.project_slug }} VERSION 0.1.0 LANGUAGES C)
 
 set (src_DIR ${PROJECT_SOURCE_DIR}/src)
 
@@ -67,15 +67,15 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS 1)
 # Debug, Release, RelWithDebInfo, MinSizeRel
 set (CMAKE_BUILD_TYPE Debug)
 list (APPEND
-    myproj_DEFAULT_C_COMPILER_FLAGS
+    {{ cookiecutter.project_slug }}_DEFAULT_C_COMPILER_FLAGS
     ${CMAKE_C_FLAGS}
     -std=c99 -Wall -pedantic)
 list (APPEND
-    myproj_DEBUG_C_COMPILER_FLAGS
+    {{ cookiecutter.project_slug }}_DEBUG_C_COMPILER_FLAGS
     ${CMAKE_C_FLAGS_DEBUG}
     -Wextra -Wunused -Wformat=2 -Weverything -g)
 list (APPEND
-    myproj_DEFAULT_C_DEFINITIONS -D_GNU_SOURCE)
+    {{ cookiecutter.project_slug }}_DEFAULT_C_DEFINITIONS -D_GNU_SOURCE)
 
 include (CheckCCompilerFlag)
 message ("-- Setting compiler options (build type ${CMAKE_BUILD_TYPE})")
@@ -103,14 +103,14 @@ function (join_list LIST_VAR RES_VAR)
     set (${RES_VAR} "${_RES_VAR}" PARENT_SCOPE)
 endfunction (join_list)
 
-check_c_compiler_flag_list (myproj_DEFAULT_C_COMPILER_FLAGS res)
-join_list (res myproj_DEFAULT_C_COMPILER_FLAGS_used)
-set (CMAKE_C_FLAGS "${myproj_DEFAULT_C_COMPILER_FLAGS_used}")
-check_c_compiler_flag_list (myproj_DEBUG_C_COMPILER_FLAGS res)
-join_list (res myproj_DEBUG_C_COMPILER_FLAGS_used)
-set (CMAKE_C_FLAGS_DEBUG "${myproj_DEBUG_C_COMPILER_FLAGS_used}")
-add_definitions (${myproj_DEFAULT_C_DEFINITIONS})
-join_list (myproj_DEFAULT_C_DEFINITIONS DEFAULT_C_DEFINITIONS_used)
+check_c_compiler_flag_list ({{ cookiecutter.project_slug }}_DEFAULT_C_COMPILER_FLAGS res)
+join_list (res {{ cookiecutter.project_slug }}_DEFAULT_C_COMPILER_FLAGS_used)
+set (CMAKE_C_FLAGS "${{ "{" }}{{ cookiecutter.project_slug }}_DEFAULT_C_COMPILER_FLAGS_used}")
+check_c_compiler_flag_list ({{ cookiecutter.project_slug }}_DEBUG_C_COMPILER_FLAGS res)
+join_list (res {{ cookiecutter.project_slug }}_DEBUG_C_COMPILER_FLAGS_used)
+set (CMAKE_C_FLAGS_DEBUG "${{ "{" }}{{ cookiecutter.project_slug }}_DEBUG_C_COMPILER_FLAGS_used}")
+add_definitions (${{ "{" }}{{ cookiecutter.project_slug }}_DEFAULT_C_DEFINITIONS})
+join_list ({{ cookiecutter.project_slug }}_DEFAULT_C_DEFINITIONS DEFAULT_C_DEFINITIONS_used)
 
 message ("-- Setting compiler options - done")
 
