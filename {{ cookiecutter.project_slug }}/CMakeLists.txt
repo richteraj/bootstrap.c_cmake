@@ -39,6 +39,8 @@ if (USE_CLANG)
 endif ()
 
 project ({{ cookiecutter.project_slug }} VERSION 0.1.0 LANGUAGES C)
+set (PROJECT_AUTHORS "{{ cookiecutter.full_name }}")
+set (PROJECT_COPY_YEARS "{{ cookiecutter.year }}")
 
 set (src_DIR ${PROJECT_SOURCE_DIR}/src)
 
@@ -67,15 +69,15 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS 1)
 # Debug, Release, RelWithDebInfo, MinSizeRel
 set (CMAKE_BUILD_TYPE Debug)
 list (APPEND
-    {{ cookiecutter.project_slug }}_DEFAULT_C_COMPILER_FLAGS
+    {{ cookiecutter.project_slug }}_C_FLAGS
     ${CMAKE_C_FLAGS}
     -std=c99 -Wall -pedantic)
 list (APPEND
-    {{ cookiecutter.project_slug }}_DEBUG_C_COMPILER_FLAGS
+    {{ cookiecutter.project_slug }}_C_FLAGS_DEBUG
     ${CMAKE_C_FLAGS_DEBUG}
     -Wextra -Wunused -Wformat=2 -Weverything -g)
 list (APPEND
-    {{ cookiecutter.project_slug }}_DEFAULT_C_DEFINITIONS -D_GNU_SOURCE)
+    {{ cookiecutter.project_slug }}_C_DEFINITIONS -D_GNU_SOURCE)
 
 include (CheckCCompilerFlag)
 message ("-- Setting compiler options (build type ${CMAKE_BUILD_TYPE})")
@@ -103,14 +105,15 @@ function (join_list LIST_VAR RES_VAR)
     set (${RES_VAR} "${_RES_VAR}" PARENT_SCOPE)
 endfunction (join_list)
 
-check_c_compiler_flag_list ({{ cookiecutter.project_slug }}_DEFAULT_C_COMPILER_FLAGS res)
-join_list (res {{ cookiecutter.project_slug }}_DEFAULT_C_COMPILER_FLAGS_used)
-set (CMAKE_C_FLAGS "${{ "{" }}{{ cookiecutter.project_slug }}_DEFAULT_C_COMPILER_FLAGS_used}")
-check_c_compiler_flag_list ({{ cookiecutter.project_slug }}_DEBUG_C_COMPILER_FLAGS res)
-join_list (res {{ cookiecutter.project_slug }}_DEBUG_C_COMPILER_FLAGS_used)
-set (CMAKE_C_FLAGS_DEBUG "${{ "{" }}{{ cookiecutter.project_slug }}_DEBUG_C_COMPILER_FLAGS_used}")
-add_definitions (${{ "{" }}{{ cookiecutter.project_slug }}_DEFAULT_C_DEFINITIONS})
-join_list ({{ cookiecutter.project_slug }}_DEFAULT_C_DEFINITIONS DEFAULT_C_DEFINITIONS_used)
+check_c_compiler_flag_list ({{ cookiecutter.project_slug }}_C_FLAGS res)
+join_list (res {{ cookiecutter.project_slug }}_C_FLAGS_used)
+set (CMAKE_C_FLAGS "${{ "{" }}{{ cookiecutter.project_slug }}_C_FLAGS_used}")
+check_c_compiler_flag_list ({{ cookiecutter.project_slug }}_C_FLAGS_DEBUG res)
+join_list (res {{ cookiecutter.project_slug }}_C_FLAGS_DEBUG_used)
+set (CMAKE_C_FLAGS_DEBUG "${{ "{" }}{{ cookiecutter.project_slug }}_C_FLAGS_DEBUG_used}")
+
+add_definitions (${{ "{" }}{{ cookiecutter.project_slug }}_C_DEFINITIONS})
+join_list ({{ cookiecutter.project_slug }}_C_DEFINITIONS {{ cookiecutter.project_slug }}_C_DEFINITIONS_used)
 
 message ("-- Setting compiler options - done")
 
@@ -118,8 +121,8 @@ message ("-- Setting compiler options - done")
 add_subdirectory (${src_DIR})
 
 
-#
-## Summary
+# Summary
+##
 message ("\n-- Summary:")
 message ("Project ${PROJECT_NAME} (${PROJECT_VERSION}):")
 message ("  src:   ${PROJECT_SOURCE_DIR}")
@@ -128,5 +131,5 @@ message ("  build type: ${CMAKE_BUILD_TYPE}")
 message ("C compiler: ${CMAKE_C_COMPILER}")
 message ("  Flags:         ${CMAKE_C_FLAGS}")
 message ("  Flags (Debug): ${CMAKE_C_FLAGS_DEBUG}")
-message ("  -D:            ${DEFAULT_C_DEFINITIONS_used}")
+message ("  -D:            ${{ "{" }}{{ cookiecutter.project_slug }}_C_DEFINITIONS_used}")
 
