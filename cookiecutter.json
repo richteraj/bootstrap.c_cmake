@@ -4,5 +4,6 @@
     "project_name": "My New Project",
     "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '_') }}",
     "pkg_name": "{{ cookiecutter.project_slug|replace('_', '') }}",
-    "project_short_description": "Boilerplate for C programs with CMake"
+    "project_short_description": "Boilerplate for C programs with CMake",
+    "year": "2017"
 }
