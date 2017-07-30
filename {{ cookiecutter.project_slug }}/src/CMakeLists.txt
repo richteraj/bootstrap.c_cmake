@@ -26,7 +26,9 @@ add_custom_target (config_h
 include_directories (${CMAKE_CURRENT_BINARY_DIR})
 add_definitions (-DHAVE_CONFIG_H=1)
 
-add_executable ({{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}.c)
+# TODO set which sources belong to which executable
+file (GLOB srcs *.c)
+add_executable ({{ cookiecutter.pkg_name }} ${srcs})
 add_dependencies ({{ cookiecutter.pkg_name }} config_h)
 
 install(
