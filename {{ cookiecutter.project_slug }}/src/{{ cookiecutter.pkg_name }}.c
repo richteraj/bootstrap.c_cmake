@@ -99,8 +99,7 @@ print_version (FILE *ostr)
 "License GPLv3+: "
     "GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-          );
+"There is NO WARRANTY, to the extent permitted by law.\n");
 }
 
 /* Print usage to `ostr`.  */
@@ -112,6 +111,5 @@ print_usage (FILE *ostr)
   /* TODO expand usage information */
   fprintf (ostr,
 "  -h, --help          display this help and exit\n"
-"  -V, --version       output version information and exit\n"
-  );
+"  -V, --version       output version information and exit\n");
 }
