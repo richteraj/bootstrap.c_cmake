@@ -18,7 +18,7 @@
 
 
 #ifndef MYPROG_H_
-# define MYPROG_H_
+#define MYPROG_H_
 
 #if HAVE_CONFIG_H
 # include "config.h"
