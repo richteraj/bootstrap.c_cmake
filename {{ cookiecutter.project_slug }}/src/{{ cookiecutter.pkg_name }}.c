@@ -108,7 +108,8 @@ void
 print_usage (FILE *ostr)
 {
   fprintf (ostr, "Usage: %s %s\n", PROJECT_NAME, "[OPTION]... [FILE]...");
-  fprintf (ostr, "Short description may be here\n\n");
+  fprintf (ostr, "{{ cookiecutter.project_short_description }}\n\n");
+  /* TODO expand usage information */
   fprintf (ostr,
 "  -h, --help          display this help and exit\n"
 "  -V, --version       output version information and exit\n"
