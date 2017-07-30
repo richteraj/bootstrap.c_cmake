@@ -1,4 +1,4 @@
-# CMakeLists.txt
+# CMakeLists.txt -- global project configuration
 # Copyright 2017 A. Johannes RICHTER <albrechtjohannes.richter@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
