@@ -16,7 +16,7 @@
 
 include_directories (${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 # TODO Keep if tests library necessary
-# add_library (testutils testutils.c)
+# add_library (testutils SHARED testutils.c)
 
 file (GLOB srcs test_*.c)
 foreach (test_source IN LISTS srcs)

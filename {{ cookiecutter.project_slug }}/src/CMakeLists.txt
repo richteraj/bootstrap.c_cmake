@@ -33,7 +33,7 @@ add_dependencies ({{ cookiecutter.pkg_name }} config_h)
 # TODO Change to fit the project
 file (GLOB srcs *.c)
 list (REMOVE_ITEM srcs {{ cookiecutter.pkg_name }}.c)
-add_library ({{ cookiecutter.pkg_name }}lib ${srcs})
+add_library ({{ cookiecutter.pkg_name }}lib SHARED ${srcs})
 target_link_libraries ({{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}lib)
 add_dependencies ({{ cookiecutter.pkg_name }}lib config_h)
 
