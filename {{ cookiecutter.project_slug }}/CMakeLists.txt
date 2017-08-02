@@ -42,7 +42,10 @@ project ({{ cookiecutter.project_slug }} VERSION 0.1.0 LANGUAGES C)
 set (PROJECT_AUTHORS "{{ cookiecutter.full_name }}")
 set (PROJECT_COPY_YEARS "{{ cookiecutter.year }}")
 
+include (CTest)
+
 set (src_DIR ${PROJECT_SOURCE_DIR}/src)
+set (tests_DIR ${PROJECT_SOURCE_DIR}/tests)
 
 
 # Compiler options
@@ -101,8 +104,8 @@ join_list ({{ cookiecutter.project_slug }}_C_DEFINITIONS {{ cookiecutter.project
 
 message ("-- Setting compiler options - done")
 
-
 add_subdirectory (${src_DIR})
+add_subdirectory (${tests_DIR})
 
 
 # Summary

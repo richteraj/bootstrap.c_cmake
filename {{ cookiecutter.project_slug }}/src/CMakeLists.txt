@@ -1,4 +1,4 @@
-# CMakeLists.txt
+# CMakeLists.txt - CMake source files
 # Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -26,13 +26,19 @@ add_custom_target (config_h
 include_directories (${CMAKE_CURRENT_BINARY_DIR})
 add_definitions (-DHAVE_CONFIG_H=1)
 
-# TODO set which sources belong to which executable
-file (GLOB srcs *.c)
-add_executable ({{ cookiecutter.pkg_name }} ${srcs})
+add_executable ({{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}.c)
 add_dependencies ({{ cookiecutter.pkg_name }} config_h)
 
+# Gather other sources into a lib
+# TODO Change to fit the project
+file (GLOB srcs *.c)
+list (REMOVE_ITEM srcs {{ cookiecutter.pkg_name }}.c)
+add_library ({{ cookiecutter.pkg_name }}lib ${srcs})
+target_link_libraries ({{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}lib)
+add_dependencies ({{ cookiecutter.pkg_name }}lib config_h)
+
 install(
-    TARGETS {{ cookiecutter.pkg_name }}
+    TARGETS {{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}lib
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib/static)
