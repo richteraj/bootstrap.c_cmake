@@ -33,8 +33,3 @@ except UserWarning:
     print('Desktop entry may have to be edited')
 
 user.create_desktop(session_name=repo, working_dir='.')
-
-##
-# Git set-up.
-#
-user.git_init_and_commit('.')
