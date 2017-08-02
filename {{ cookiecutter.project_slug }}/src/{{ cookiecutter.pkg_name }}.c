@@ -78,13 +78,13 @@ main (int argc, char *argv[])
 
   /* Non-option arguments */
   if (optind < argc)
-  {
-    while (optind < argc)
-      {
-        /* TODO deal with arguments */
-        ++optind;
-      }
-  }
+    {
+      while (optind < argc)
+        {
+          /* TODO deal with arguments */
+          ++optind;
+        }
+    }
 
   return 0;
 }
