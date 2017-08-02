@@ -1,6 +1,6 @@
 /*
    test_{{ cookiecutter.pkg_name }}.c -- tests for {{ cookiecutter.pkg_name }}.c
-   Copyright 2017 A. Johannes RICHTER <albrechtjohannes.richter@gmail.com>
+   Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -18,6 +18,7 @@
 
 
 #include <assert.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 #include "{{ cookiecutter.pkg_name }}.h"
