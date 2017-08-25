@@ -58,7 +58,7 @@ set (CMAKE_BUILD_TYPE Debug)
 list (APPEND
     {{ cookiecutter.project_slug }}_C_FLAGS
     ${CMAKE_C_FLAGS}
-    -std=c99 -Wall -pedantic)
+    -std=c99 -Wall -Wpedantic)
 list (APPEND
     {{ cookiecutter.project_slug }}_C_FLAGS_DEBUG
     ${CMAKE_C_FLAGS_DEBUG}
