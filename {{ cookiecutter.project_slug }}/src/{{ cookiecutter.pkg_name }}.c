@@ -72,7 +72,7 @@ main (int argc, char *argv[])
 
         default:
           fprintf (stderr,
-            "?? getopt returned character code 0%o ??\n", choice);
+            "?? getopt returned character code %#x ??\n", choice);
         }
     }
 
