@@ -17,8 +17,8 @@
 */
 
 
-#ifndef MYPROG_H_
-#define MYPROG_H_
+#ifndef {{ cookiecutter.pkg_name | upper }}_H_
+#define {{ cookiecutter.pkg_name | upper }}_H_
 
 #if HAVE_CONFIG_H
 # include "config.h"
@@ -29,4 +29,4 @@
 void print_version (FILE *ostr);
 void print_usage (FILE *ostr);
 
-#endif /* not MYPROG_H_ */
+#endif /* not {{ cookiecutter.pkg_name | upper }}_H_ */

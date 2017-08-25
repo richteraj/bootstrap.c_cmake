@@ -14,6 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# TODO Make relative `Project-*` etc. to use as a sub-project
 include_directories (${CMAKE_BINARY_DIR}/src ${CMAKE_SOURCE_DIR}/src)
 # TODO Keep if tests library necessary
 # add_library (testutils SHARED testutils.c)
