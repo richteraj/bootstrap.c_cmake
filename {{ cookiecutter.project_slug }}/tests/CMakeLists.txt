@@ -25,6 +25,6 @@ foreach (test_source IN LISTS srcs)
     add_executable (${test_target} ${test_source})
     # TODO Add testutils lib if present
     target_link_libraries (${test_target} {{ cookiecutter.pkg_name }}lib)
-    add_test (${test_target} ${test_target})
+    add_test (NAME ${test_target} COMMAND ${test_target})
 endforeach (test_source)
 
