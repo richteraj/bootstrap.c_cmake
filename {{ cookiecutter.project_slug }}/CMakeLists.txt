@@ -46,6 +46,10 @@ include (CTest)
 
 set (src_DIR ${PROJECT_SOURCE_DIR}/src)
 set (tests_DIR ${PROJECT_SOURCE_DIR}/tests)
+set (bin_DIR ${PROJECT_SOURCE_DIR}/bin)
+set (lib_DIR ${PROJECT_SOURCE_DIR}/lib)
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${bin_DIR})
+set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${lib_DIR})
 
 
 # Compiler options
@@ -58,11 +62,11 @@ set (CMAKE_BUILD_TYPE Debug)
 list (APPEND
     {{ cookiecutter.project_slug }}_C_FLAGS
     ${CMAKE_C_FLAGS}
-    -std=c99 -Wall -Wpedantic)
+    -std=gnu11 -Wall -O2)
 list (APPEND
     {{ cookiecutter.project_slug }}_C_FLAGS_DEBUG
     ${CMAKE_C_FLAGS_DEBUG}
-    -Wextra -Wunused -Wformat=2 -Weverything -g)
+    -Wextra -Wformat=2 -g)
 list (APPEND
     {{ cookiecutter.project_slug }}_C_DEFINITIONS -D_GNU_SOURCE)
 
