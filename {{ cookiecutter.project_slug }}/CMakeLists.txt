@@ -66,7 +66,7 @@ list (APPEND
 list (APPEND
     {{ cookiecutter.project_slug }}_C_FLAGS_DEBUG
     ${CMAKE_C_FLAGS_DEBUG}
-    -Wextra -Wformat=2 -g)
+    -Wextra -Wformat=2 -g -Og)
 list (APPEND
     {{ cookiecutter.project_slug }}_C_DEFINITIONS -D_GNU_SOURCE)
 
