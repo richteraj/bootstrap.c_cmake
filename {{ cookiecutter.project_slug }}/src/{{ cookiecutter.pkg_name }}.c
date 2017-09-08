@@ -85,8 +85,6 @@ main (int argc, char *argv[])
           ++optind;
         }
     }
-
-  return 0;
 }
 
 /* Print version information to `ostr`.  */
