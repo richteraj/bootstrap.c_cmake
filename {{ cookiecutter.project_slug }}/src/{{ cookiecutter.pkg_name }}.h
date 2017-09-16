@@ -2,11 +2,11 @@
  *  {{ cookiecutter.project_short_description }}
  */
 
-#ifndef defined ({{ cookiecutter.pkg_name | upper }}_H_) && {{ cookiecutter.pkg_name | upper }}_H_
+#ifndef {{ cookiecutter.pkg_name | upper }}_H_
 #define {{ cookiecutter.pkg_name | upper }}_H_
 
-#if HAVE_CONFIG_H
-# include "config.h"
+#if defined (HAVE_CONFIG_H) && HAVE_CONFIG_H
+  #include "config.h"
 #endif
 
 #include <stdio.h>
