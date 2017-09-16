@@ -1,6 +1,22 @@
-/*
-   {{ cookiecutter.pkg_name }}.h -- {{ cookiecutter.project_short_description }}
-   Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
+/** \file
+ *  {{ cookiecutter.project_short_description }}
+ */
+
+#ifndef defined ({{ cookiecutter.pkg_name | upper }}_H_) && {{ cookiecutter.pkg_name | upper }}_H_
+#define {{ cookiecutter.pkg_name | upper }}_H_
+
+#if HAVE_CONFIG_H
+# include "config.h"
+#endif
+
+#include <stdio.h>
+
+void print_version (FILE *ostr);
+void print_usage (FILE *ostr);
+
+#endif /* not {{ cookiecutter.pkg_name | upper }}_H_ */
+
+/* Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -16,17 +32,3 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-#ifndef {{ cookiecutter.pkg_name | upper }}_H_
-#define {{ cookiecutter.pkg_name | upper }}_H_
-
-#if HAVE_CONFIG_H
-# include "config.h"
-#endif
-
-#include <stdio.h>
-
-void print_version (FILE *ostr);
-void print_usage (FILE *ostr);
-
-#endif /* not {{ cookiecutter.pkg_name | upper }}_H_ */
