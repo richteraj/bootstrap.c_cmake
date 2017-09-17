@@ -7,3 +7,5 @@
 /doc/doxygen/
 /doc/Doxyfile-dev
 /doc/Doxyfile-common
+
+/dist/

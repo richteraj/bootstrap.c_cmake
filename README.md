@@ -70,13 +70,16 @@ with
     cmake --build build-dir --target test
 
 or with `make test` or with `ctest` directly.  The `test` target only executes
-the tests, the building has to be separately.
+the tests, the building has to be done separately.
 
 ### Release
 
-**TODO**
+You can create a source tarball with:
 
     make dist
+
+This uses the CPack module.  Make sure your working directory is clean or
+unwanted files may be included in the tarball.
 
 
 [cookiecutter]: https://github.com/audreyr/cookiecutter

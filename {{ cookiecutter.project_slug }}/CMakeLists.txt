@@ -39,6 +39,22 @@ add_subdirectory (${tests_DIR})
 add_subdirectory (${doc_DIR})
 
 
+set (CPACK_PACKAGE_CONTACT ${PROJECT_AUTHORS})
+set (CPACK_PACKAGE_DIRECTORY "${PROJECT_SOURCE_DIR}/dist")
+set (CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+set (CPACK_SOURCE_GENERATOR "TBZ2")
+# TODO:550 Add files which should not be included in the source tar ball.
+set (CPACK_SOURCE_IGNORE_FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/" "${CPACK_PACKAGE_DIRECTORY}/"
+    "\\\\.swp$" "~$"
+    "${CPACK_SOURCE_IGNORE_FILES}")
+set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/COPYING")
+set (CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
+include (CPack)
+
+add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
+
+
 # Summary
 message ("\n-- Summary:")
 message ("Project ${PROJECT_NAME} (${PROJECT_VERSION}):")
