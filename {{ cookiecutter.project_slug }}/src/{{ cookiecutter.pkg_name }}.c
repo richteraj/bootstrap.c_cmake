@@ -97,6 +97,8 @@ print_usage (FILE *ostr)
 "  -V, --version       output version information and exit\n");
 }
 
+// TODO:420 You may want to change the license of all files.
+// TODO:420 The license used here is the GPLv3+.
 /* Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
 
    This program is free software: you can redistribute it and/or modify
