@@ -70,7 +70,7 @@ with
     cmake --build build-dir --target test
 
 or with `make test` or with `ctest` directly.  The `test` target only executes
-the tests, the building has to be separately.
+the tests, the building has to be done separately.
 
 ### Release
 
