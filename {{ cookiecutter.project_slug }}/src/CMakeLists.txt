@@ -10,19 +10,19 @@ add_custom_target (config_h
 include_directories (${CMAKE_CURRENT_BINARY_DIR})
 add_definitions (-DHAVE_CONFIG_H=1)
 
+# TODO:501 Add targets and set dependencies.
 add_executable ({{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}.c)
 add_dependencies ({{ cookiecutter.pkg_name }} config_h)
 
-# Gather other sources into a lib
-# TODO Change to fit the project
+# Gather sources into a lib for testing purposes
+# TODO:510 Add libraries.
 file (GLOB srcs *.c)
-list (REMOVE_ITEM srcs {{ cookiecutter.pkg_name }}.c)
-add_library ({{ cookiecutter.pkg_name }}lib SHARED ${srcs})
-target_link_libraries ({{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}lib)
-add_dependencies ({{ cookiecutter.pkg_name }}lib config_h)
+add_library ({{ cookiecutter.pkg_name }}_testlib SHARED ${srcs})
+add_dependencies ({{ cookiecutter.pkg_name }}_testlib config_h)
 
+# TODO:520 Add install targets.
 install(
-    TARGETS {{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}lib
+    TARGETS {{ cookiecutter.pkg_name }}
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib/static)
