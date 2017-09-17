@@ -22,7 +22,7 @@ main (int argc, char *argv[])
                no_argument, required_argument, optional_argument */
             {"version", no_argument, 0, 'V'},
             {"help",    no_argument, 0, 'h'},
-            /* TODO add options here */
+            // TODO:101 Add further CLI long options
             {0, 0, 0, 0}
         };
 
@@ -30,6 +30,7 @@ main (int argc, char *argv[])
            no_argument: "o"
            required_argument: "o:"
            optional_argument: "o::" */
+        // TODO:102 Add CLI long options short equivalents.
         choice = getopt_long (
             argc, argv, "Vh", long_options, &option_index);
 
@@ -47,6 +48,8 @@ main (int argc, char *argv[])
                 exit (EXIT_SUCCESS);
                 break;
 
+            // TODO:103 Parse further short options.
+
             case '?':
                 /* getopt_long will have already printed an error */
                 print_usage (stderr);
@@ -63,13 +66,12 @@ main (int argc, char *argv[])
     {
         while (optind < argc)
         {
-            /* TODO deal with arguments */
+            // TODO:105 Deal with the non-option arguments.
             ++optind;
         }
     }
 }
 
-/** Print version information to `ostr`.  */
 /** Print version information to \a ostr.  */
 void
 print_version (FILE *ostr)
@@ -89,7 +91,7 @@ print_usage (FILE *ostr)
 {
     fprintf (ostr, "Usage: %s %s\n", PROJECT_NAME, "[OPTION]... [FILE]...");
     fprintf (ostr, "{{ cookiecutter.project_short_description }}\n\n");
-    /* TODO expand usage information */
+    // TODO:110 Add usage text for further options.
     fprintf (ostr,
 "  -h, --help          display this help and exit\n"
 "  -V, --version       output version information and exit\n");

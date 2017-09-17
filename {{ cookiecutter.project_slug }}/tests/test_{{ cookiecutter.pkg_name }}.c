@@ -1,5 +1,3 @@
-#include <assert.h>
-
 #include "{{ cookiecutter.pkg_name }}.h"
 #include "cminitests.h"
 
@@ -7,16 +5,16 @@
 void
 cmt_set_up (void)
 {
-    /* TODO Set-up for every test case. */
+    // TODO:301  Set-up for every test case.
 }
 #undef cmt_tear_down
 void
 cmt_tear_down (void)
 {
-    /* TODO Tear-down for every test case. */
+    // TODO:302 Tear-down for every test case.
 }
 
-/* TODO Add test cases */
+// TODO:310 Add test cases.
 char *
 this_test_will_fail (void)
 {

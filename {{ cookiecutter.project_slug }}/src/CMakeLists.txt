@@ -10,17 +10,17 @@ add_custom_target (config_h
 include_directories (${CMAKE_CURRENT_BINARY_DIR})
 add_definitions (-DHAVE_CONFIG_H=1)
 
-# TODO Add targets and set dependencies
+# TODO:501 Add targets and set dependencies.
 add_executable ({{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}.c)
 add_dependencies ({{ cookiecutter.pkg_name }} config_h)
 
 # Gather sources into a lib for testing purposes
-# TODO Add libraries
+# TODO:510 Add libraries.
 file (GLOB srcs *.c)
 add_library ({{ cookiecutter.pkg_name }}_testlib SHARED ${srcs})
 add_dependencies ({{ cookiecutter.pkg_name }}_testlib config_h)
 
-# TODO Add install targets
+# TODO:520 Add install targets.
 install(
     TARGETS {{ cookiecutter.pkg_name }}
     RUNTIME DESTINATION bin

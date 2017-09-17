@@ -1,3 +1,5 @@
+# TODO:402 Adjust the Doxygen configuration options for the Debug build only.
+
 @INCLUDE_PATH          = "@doc_DIR@"
 @INCLUDE               = Doxyfile-common
 

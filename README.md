@@ -22,7 +22,7 @@ Then set up a Git repository:
 
 You can use the following command to list all things to be done:
 
-    git grep -n "TODO:"
+    git grep -n "TODO:[0-9]\+"
 
 ### Build
 

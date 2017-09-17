@@ -1,3 +1,5 @@
+# TODO:401 Adjust the Doxygen configuration options.
+
 DOXYFILE_ENCODING      = UTF-8
 
 PROJECT_NAME           = "@PROJECT_NAME@"

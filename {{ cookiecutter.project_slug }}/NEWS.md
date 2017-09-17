@@ -1,5 +1,6 @@
 <!-- {{cookiecutter.project_name}} -- NEWS -->
 
+<!-- TODO:450 Fill out the NEWS. -->
 Noteworthy changes in release ?.? (????-??-??) [unstable]
 ========================================================================
 
