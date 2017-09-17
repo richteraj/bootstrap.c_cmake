@@ -16,6 +16,7 @@ cmt_tear_down (void)
     /* TODO Tear-down for every test case. */
 }
 
+/* TODO Add test cases */
 char *
 this_test_will_fail (void)
 {
@@ -26,7 +27,7 @@ this_test_will_fail (void)
 void
 all_tests (void)
 {
-    CMT_TEST_CASE (this_test_will_fail)
+    CMT_TEST_CASE (this_test_will_fail,)
 }
 
 CMT_RUN_TESTS (all_tests)

@@ -18,7 +18,7 @@ main (int argc, char *argv[])
 
         static struct option long_options[] =
         {
-            /* Argument styles:
+            /* Number of arguments:
                no_argument, required_argument, optional_argument */
             {"version", no_argument, 0, 'V'},
             {"help",    no_argument, 0, 'h'},
@@ -41,7 +41,6 @@ main (int argc, char *argv[])
             case 'V':
                 print_version (stdout);
                 exit (EXIT_SUCCESS);
-                break;
 
             case 'h':
                 print_usage (stdout);
@@ -52,11 +51,10 @@ main (int argc, char *argv[])
                 /* getopt_long will have already printed an error */
                 print_usage (stderr);
                 exit (EXIT_FAILURE);
-                break;
 
             default:
-                fprintf (stderr,
-                    "?? getopt returned character code %#x ??\n", choice);
+                fprintf (
+                    stderr, "?? getopt returned character code %#x ??\n", choice);
         }
     }
 
@@ -72,6 +70,7 @@ main (int argc, char *argv[])
 }
 
 /** Print version information to `ostr`.  */
+/** Print version information to \a ostr.  */
 void
 print_version (FILE *ostr)
 {
@@ -84,7 +83,7 @@ print_version (FILE *ostr)
 "There is NO WARRANTY, to the extent permitted by law.\n");
 }
 
-/** Print usage to `ostr`.  */
+/** Print usage information to \a ostr.  */
 void
 print_usage (FILE *ostr)
 {
