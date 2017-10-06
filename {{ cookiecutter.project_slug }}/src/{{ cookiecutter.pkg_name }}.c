@@ -71,7 +71,9 @@ main (int argc, char *argv[])
     }
 }
 
-/** Print version information to \a ostr.  */
+/** Print version information to \a ostr.
+ * \param ostr The file handle where to output to.  Has to be opened for
+ * writing.  */
 void
 print_version (FILE *ostr)
 {
@@ -84,7 +86,9 @@ print_version (FILE *ostr)
 "There is NO WARRANTY, to the extent permitted by law.\n");
 }
 
-/** Print usage information to \a ostr.  */
+/** Print usage information to \a ostr.
+ * \param ostr The file handle where to output to.  Has to be opened for
+ * writing.  */
 void
 print_usage (FILE *ostr)
 {
