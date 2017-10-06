@@ -46,7 +46,6 @@ main (int argc, char *argv[])
             case 'h':
                 print_usage (stdout);
                 exit (EXIT_SUCCESS);
-                break;
 
             // TODO:103 Parse further short options.
 
