@@ -1,3 +1,6 @@
+/** \file
+ * Tests for {{ cookiecutter.pkg_name }}.c.  */
+
 #include "{{ cookiecutter.pkg_name }}.h"
 #include "cminitests.h"
 
@@ -7,6 +10,7 @@ cmt_set_up (void)
 {
     // TODO:301  Set-up for every test case.
 }
+
 #undef cmt_tear_down
 void
 cmt_tear_down (void)
@@ -30,8 +34,7 @@ all_tests (void)
 
 CMT_RUN_TESTS (all_tests)
 
-/* test_{{ cookiecutter.pkg_name }}.c -- tests for {{ cookiecutter.pkg_name }}.c
-   Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
+/* Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by

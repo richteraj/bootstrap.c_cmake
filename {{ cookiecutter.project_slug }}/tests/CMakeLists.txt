@@ -1,12 +1,11 @@
-# TODO Make relative `Project-*` etc. to use as a sub-project
-include_directories (${CMAKE_BINARY_DIR}/src ${src_DIR})
-
 # Compiled tests
 file (GLOB srcs test_*.c)
 foreach (test_source IN LISTS srcs)
     get_filename_component (test_target ${test_source} NAME_WE)
     add_executable (${test_target} ${test_source})
     target_link_libraries (${test_target} {{ cookiecutter.pkg_name }}_testlib)
+    target_include_directories (${test_target} PRIVATE ${src_DIR})
+
     add_test (NAME ${test_target} COMMAND ${test_target})
 endforeach (test_source)
 

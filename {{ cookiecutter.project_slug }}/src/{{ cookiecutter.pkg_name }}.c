@@ -46,7 +46,6 @@ main (int argc, char *argv[])
             case 'h':
                 print_usage (stdout);
                 exit (EXIT_SUCCESS);
-                break;
 
             // TODO:103 Parse further short options.
 
@@ -72,7 +71,9 @@ main (int argc, char *argv[])
     }
 }
 
-/** Print version information to \a ostr.  */
+/** Print version information to \a ostr.
+ * \param ostr The file handle where to output to.  Has to be opened for
+ * writing.  */
 void
 print_version (FILE *ostr)
 {
@@ -85,7 +86,9 @@ print_version (FILE *ostr)
 "There is NO WARRANTY, to the extent permitted by law.\n");
 }
 
-/** Print usage information to \a ostr.  */
+/** Print usage information to \a ostr.
+ * \param ostr The file handle where to output to.  Has to be opened for
+ * writing.  */
 void
 print_usage (FILE *ostr)
 {
@@ -97,6 +100,8 @@ print_usage (FILE *ostr)
 "  -V, --version       output version information and exit\n");
 }
 
+// TODO:420 You may want to change the license of all files.
+// TODO:420 The license used here is the GPLv3+.
 /* Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
 
    This program is free software: you can redistribute it and/or modify

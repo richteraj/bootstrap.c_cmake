@@ -1,31 +1,33 @@
 configure_file (
-    ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
-    ${CMAKE_CURRENT_BINARY_DIR}/config.h
+    "config.h.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/config.h"
     ESCAPE_QUOTES @ONLY)
 
-add_custom_target (config_h
-    COMMENT "Updating config.h"
-    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in)
-
-include_directories (${CMAKE_CURRENT_BINARY_DIR})
-add_definitions (-DHAVE_CONFIG_H=1)
-
 # TODO:501 Add targets and set dependencies.
-add_executable ({{ cookiecutter.pkg_name }} {{ cookiecutter.pkg_name }}.c)
-add_dependencies ({{ cookiecutter.pkg_name }} config_h)
+add_executable ({{ cookiecutter.pkg_name }}
+    {{ cookiecutter.pkg_name }}.c
+    "${CMAKE_CURRENT_BINARY_DIR}/config.h")
+target_include_directories ({{ cookiecutter.pkg_name }}
+    PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_compile_definitions ({{ cookiecutter.pkg_name }}
+    PRIVATE "-DHAVE_CONFIG_H=1")
 
 # Gather sources into a lib for testing purposes
-# TODO:510 Add libraries.
+# TODO:510 This is quick and dirty with globbing
 file (GLOB srcs *.c)
-add_library ({{ cookiecutter.pkg_name }}_testlib SHARED ${srcs})
-add_dependencies ({{ cookiecutter.pkg_name }}_testlib config_h)
+add_library ({{ cookiecutter.pkg_name }}_testlib STATIC ${srcs})
+target_include_directories ({{ cookiecutter.pkg_name }}_testlib
+    PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_compile_definitions ({{ cookiecutter.pkg_name }}_testlib
+    PRIVATE "-DHAVE_CONFIG_H=1")
+# TODO:511 Add libraries.
 
 # TODO:520 Add install targets.
 install(
     TARGETS {{ cookiecutter.pkg_name }}
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib/static)
+    ARCHIVE DESTINATION lib)
 
 # CMakeLists.txt - CMake source files
 # Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>
