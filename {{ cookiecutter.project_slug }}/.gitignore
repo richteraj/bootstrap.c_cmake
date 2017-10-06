@@ -9,3 +9,6 @@
 /doc/Doxyfile-common
 
 /dist/
+
+# Not to be ignored
+!.travis.yml

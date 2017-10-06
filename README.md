@@ -72,6 +72,9 @@ with
 or with `make test` or with `ctest` directly.  The `test` target only executes
 the tests, the building has to be done separately.
 
+To facilitate testing with [Travis CI][travis] there is a `.travis.yml` file
+provided.
+
 ### Release
 
 You can create a source tarball with:
@@ -84,6 +87,7 @@ unwanted files may be included in the tarball.
 
 [cookiecutter]: https://github.com/audreyr/cookiecutter
 [Doxygen]: https://www.stack.nl/~dimitri/doxygen/index.html
+[travis]: https://travis-ci.org/
 
 ________________________________________________________________________
 
