@@ -1,6 +1,11 @@
 bootstrap.c_cmake
 ========================================================================
 
+[![Travis CI build status][travis_img]][travis_link]
+
+[travis_img]: https://travis-ci.org/richteraj/bootstrap.c_cmake.svg?branch=master
+[travis_link]: https://travis-ci.org/richteraj/bootstrap.c_cmake
+
 This is a template for projects in C with the build process managed by
 CMake.
 
