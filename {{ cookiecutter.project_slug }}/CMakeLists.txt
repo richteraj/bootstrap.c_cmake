@@ -53,6 +53,9 @@ set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/COPYING")
 set (CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 include (CPack)
 
+# TODO Remark: CPack does not fully quote (only white space) the paths for the
+# package_source target.  Therefore paths with special shell characters like '('
+# and ')' will make the build fail.
 add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
 
