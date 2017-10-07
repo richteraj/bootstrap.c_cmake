@@ -10,12 +10,18 @@ foreach (test_source IN LISTS srcs)
 endforeach (test_source)
 
 # Tests with shell scripts
-file (GLOB srcs test_*.sh)
-foreach (test_sh_script IN LISTS srcs)
-    get_filename_component (test_target ${test_sh_script} NAME_WE)
-    add_test (NAME ${test_target}
-        COMMAND sh ${test_sh_script} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-endforeach (test_sh_script)
+find_program (sh_PROG sh)
+if (NOT sh_PROG STREQUAL "sh_PROG-NOTFOUND")
+    set (shminitests_sh "${CMAKE_CURRENT_SOURCE_DIR}/shminitests.sh")
+    file (GLOB srcs test_*.sh)
+    foreach (test_sh_script IN LISTS srcs)
+        get_filename_component (test_target ${test_sh_script} NAME_WE)
+        add_test (NAME "${test_target}_sh"
+            COMMAND ${sh_PROG} ${test_sh_script} ${shminitests_sh})
+    endforeach (test_sh_script)
+else ()
+    message (WARNING "Can't test shell scripts: program 'sh' not found")
+endif ()
 
 # CMakeLists.txt - CMake tests files
 # Copyright {{cookiecutter.year}} {{cookiecutter.full_name}} <{{cookiecutter.email}}>

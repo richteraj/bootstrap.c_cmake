@@ -32,7 +32,8 @@ if (NOT ${doxygen_BIN} STREQUAL doxygen_BIN-NOTFOUND)
         COMMENT "doxygen ${doxyfile}"
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
         DEPENDS ${doxygen_common_file}.in ${doxygen_dev_file}.in
-                ${documented_files})
+                ${documented_files}
+        VERBATIM)
 else ()
     message (WARNING
         "Couldn't find Doxygen executable. "

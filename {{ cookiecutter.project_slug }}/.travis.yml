@@ -4,6 +4,6 @@ language: c
 compiler:
     - clang
     - gcc
-script:
-    - ./configure && make --silent
-    - cd build && ctest -V --schedule-random
+# TODO:570 Customize the testing scripts if the default is not fitting.
+# script:
+#     - ./configure && make && make test

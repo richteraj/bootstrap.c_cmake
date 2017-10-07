@@ -32,15 +32,23 @@ mkdir "$build_dir"
 
 cat >Makefile <<EOF
 # Auto-generated build file
-# Will be overwritten by ./configure
+# Will be overwritten by ./configure -f
 
+CMAKE = "$cmake"
+CTEST = "`which ctest`"
 BUILD_DIR = "$build_dir"
-referred_targets = all clean install doc test dist help
+VERBOSE = 0
+referred_targets = clean install doc dist help
 
 \$(referred_targets): \$(BUILD_DIR)
 \$(BUILD_DIR):
-	\$(MAKE) -C \$@ \$(MAKECMDGOALS)
-.PHONY: \$(BUILD_DIR) \$(referred_targets)
+	\$(CMAKE) --build \$@ --target \$(MAKECMDGOALS)
+all:
+	\$(CMAKE) --build \$(BUILD_DIR) --target
+test: all
+	cd \$(BUILD_DIR) && \$(CTEST) -V --schedule-random
+
+.PHONY: \$(BUILD_DIR) \$(referred_targets) all test
 EOF
 
 echo "-- Creating build directory - done: $build_dir"
@@ -52,7 +60,7 @@ if ! cmake .. -DCMAKE_BUILD_TYPE=Release "$@"; then
 fi
 echo "-- Running CMake configuration - done"
 echo
-echo "To build the project run 'cmake --build $build_dir --target'."
+echo "To build the project run 'make'."
 
 # configure.sh -- CMake wrapper
 # Copyright 2017 A. Johannes RICHTER <albrechtjohannes.richter@gmail.com>

@@ -8,7 +8,7 @@
 void
 cmt_set_up (void)
 {
-    // TODO:301  Set-up for every test case.
+    // TODO:301 Set-up for every test case.
 }
 
 #undef cmt_tear_down
@@ -22,7 +22,7 @@ cmt_tear_down (void)
 char *
 this_test_will_fail (void)
 {
-    require (0 > 1, "TODO Fill in the tests for {{ cookiecutter.pkg_name  }}.");
+    require (0 > 1, "TODO Fill in the tests for {{ cookiecutter.pkg_name  }}.c");
     return NULL;
 }
 
