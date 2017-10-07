@@ -1,0 +1,8 @@
+default_context:
+    full_name: "Author Full Name"
+    email: "author@name.moc"
+    project_name: "My New Project"
+    project_slug: "my_new_project"
+    pkg_name: "mynewproject"
+    project_short_description: "TODO description"
+    year: "2017"
