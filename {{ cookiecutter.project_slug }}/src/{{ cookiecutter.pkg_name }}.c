@@ -39,24 +39,24 @@ main (int argc, char *argv[])
 
         switch (choice)
         {
-            case 'V':
-                print_version (stdout);
-                exit (EXIT_SUCCESS);
+        case 'V':
+            print_version (stdout);
+            exit (EXIT_SUCCESS);
 
-            case 'h':
-                print_usage (stdout);
-                exit (EXIT_SUCCESS);
+        case 'h':
+            print_usage (stdout);
+            exit (EXIT_SUCCESS);
 
-            // TODO:103 Parse further short options.
+        // TODO:103 Parse further short options.
 
-            case '?':
-                /* getopt_long will have already printed an error */
-                print_usage (stderr);
-                exit (EXIT_FAILURE);
+        case '?':
+            /* getopt_long will have already printed an error */
+            print_usage (stderr);
+            exit (EXIT_FAILURE);
 
-            default:
-                fprintf (
-                    stderr, "?? getopt returned character code %#x ??\n", choice);
+        default:
+            fprintf (
+                stderr, "?? getopt returned character code %#x ??\n", choice);
         }
     }
 

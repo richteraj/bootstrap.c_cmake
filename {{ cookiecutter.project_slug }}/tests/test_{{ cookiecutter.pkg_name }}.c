@@ -6,28 +6,28 @@
 
 #undef cmt_set_up
 void
-cmt_set_up (void)
+cmt_set_up ()
 {
     // TODO:301 Set-up for every test case.
 }
 
 #undef cmt_tear_down
 void
-cmt_tear_down (void)
+cmt_tear_down ()
 {
     // TODO:302 Tear-down for every test case.
 }
 
 // TODO:310 Add test cases.
 char *
-this_test_will_fail (void)
+this_test_will_fail ()
 {
     require (0 > 1, "TODO Fill in the tests for {{ cookiecutter.pkg_name  }}.c");
     return NULL;
 }
 
 void
-all_tests (void)
+all_tests ()
 {
     CMT_TEST_CASE (this_test_will_fail,)
 }
